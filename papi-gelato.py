@@ -1,20 +1,27 @@
+aantalbollen = 0
+horentje = 0
+bakje = 0
+
+
+
 def stap2(aantalbollen):
     BakjeOfHorentje = input('Wilt u deze '+str(aantalbollen)+' bolletje(s) in A) een hoorntje of B) een bakje?: ')
-    if BakjeOfHorentje == 'A'.lower():
+    if BakjeOfHorentje == 'B'.lower():
         BakjeOfHorentje = 'bakje'
         stap3(aantalbollen,BakjeOfHorentje)
-    elif BakjeOfHorentje == 'B'.lower():
+    elif BakjeOfHorentje == 'A'.lower():
         BakjeOfHorentje = 'horentje'
         stap3(aantalbollen,BakjeOfHorentje)
     else:
         print("Sorry dat snap ik niet...\n")
-        stap2()
+        stap2(aantalbollen)
 
 def stap3(aantalbollen, BakjeOfHorentje ):
-    meerbestellen = input("Hier is uw "+ BakjeOfHorentje +" met " + str(aantalbollen) +" bolletje(s). Wilt u nog meer bestellen? (Y/N): ")
+    meerbestellen = input("Hier is uw "+ str(BakjeOfHorentje) +" met " + str(aantalbollen) +" bolletje(s). Wilt u nog meer bestellen? (Y/N): ")
     if meerbestellen == 'Y'.lower():
         stap1()
     elif meerbestellen == 'N'.lower():
+        bonnetje(aantalbollen, BakjeOfHorentje)
         print("Bedankt en tot ziens!")
     else:
         print("Sorry dat snap ik niet...\n")
@@ -22,13 +29,17 @@ def stap3(aantalbollen, BakjeOfHorentje ):
 
 
 def stap1():
-    aantalbollen = int(input("Hoeveel bolletjes wilt u?: "))
+    bollen = input("Hoeveel bolletjes wilt u?: ")
+    bollen2 = int(bollen)
+    global aantalbollen
+    aantalbollen += bollen2
     if aantalbollen >= int(9):
         print("sorry, maar u moet minder bollen kiezen\n")
         stap1()
     elif aantalbollen >= int(4):
         print("dan krijgt u van mij een bakje met",aantalbollen,"bollen.\n")
         BakjeOfHorentje = 'bakje'
+        smaken(aantalbollen)
         stap3(aantalbollen, BakjeOfHorentje)
     elif aantalbollen >= int(1):
         smaken(aantalbollen)
@@ -47,6 +58,17 @@ def smaken(aantalbollen):
             print("sorry dit snap ik niet....")
             smaken(aantalbollen)
 
+
+def bonnetje(aantalbollen, BakjeOfHorentje):
+    print("---------------","papi-gelato","---------------\n")
+    if aantalbollen >= 1:
+        print("Bolletjes       ", str(aantalbollen),"x €1.10    =", aantalbollen * 1.10)
+    if BakjeOfHorentje == 'bakje':
+        print("Bakje            1 x €0.75    =",1*0.75)
+        print("                             ------- +\ntotaal                        =",(aantalbollen * 1.10 + 0.75))
+    if BakjeOfHorentje == 'horentje':
+        print("horentje         1 x €1.25    =",1*1.25)
+        print("                             ------- +\ntotaal                        =",(aantalbollen * 1.10 + 1.25))
+
 print("*\n*Welkom bij Papi Gelato.\n*")
 stap1()
-
