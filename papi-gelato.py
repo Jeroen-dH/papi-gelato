@@ -76,7 +76,9 @@ def begin():
         stap1()
     elif a == 'B'.lower():
         stapZ()
-
+    else:
+        print("Dat snap ik niet....")
+        begin()
 
 def smaken(aantalbollen):
     a = 1
