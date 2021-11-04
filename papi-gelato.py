@@ -17,7 +17,7 @@ def toppings(aantalbollen,BakjeOfHorentje):
         topping = 'Caramel Saus'
         stap3(aantalbollen,BakjeOfHorentje,topping)
     else: 
-        print("Dat snap ik niet....")
+        print("Sorry dat is geen optie die we aanbieden...")
         toppings(aantalbollen,BakjeOfHorentje)
 
 def stap2(aantalbollen):
@@ -29,7 +29,7 @@ def stap2(aantalbollen):
         BakjeOfHorentje = 'horentje'
         toppings(aantalbollen,BakjeOfHorentje)
     else:
-        print("Sorry dat snap ik niet...\n")
+        print("Sorry dat is geen optie die we aanbieden...\n")
         stap2(aantalbollen)
 
 def stap3(aantalbollen, BakjeOfHorentje, topping):
@@ -40,7 +40,7 @@ def stap3(aantalbollen, BakjeOfHorentje, topping):
         bonnetje(aantalbollen, BakjeOfHorentje, topping)
         print("Bedankt en tot ziens!")
     else:
-        print("Sorry dat snap ik niet...\n")
+        print("Sorry dat is geen optie die we aanbieden...\n")
         stap3(aantalbollen,BakjeOfHorentje,topping)
 
 
@@ -62,7 +62,7 @@ def stap1():
         stap2(aantalbollen)
     
     else:
-        print("Sorry dat snap ik niet...\n")
+        print("Sorry dat is geen optie die we aanbieden...\n")
         stap1()
 
 
@@ -83,17 +83,17 @@ def begin():
 def smaken(aantalbollen):
     a = 1
     while a <= int(aantalbollen):
-        hoi = input(" welke smaak wilt u voor bolletje "+ str(a) +" ? Aardbei(a), chocolade(C), munt(m) of vanille(v).: ")
+        hoi = input(" welke smaak wilt u voor bolletje "+ str(a) +" ? Aardbei(a), chocolade(C) of vanille(v).: ")
         a = a + 1
-        if hoi != "A".lower() and hoi != "C".lower() and hoi != "M".lower() and hoi != "V".lower():
-            print("sorry dit snap ik niet....")
+        if hoi != "A".lower() and hoi != "C".lower() and hoi != "V".lower():
+            print("Sorry dat is geen optie die we aanbieden...")
             smaken(aantalbollen)
 
 def smaakzakelijk(liters):
     a = 1
     while a <= int(liters):
-        hoi = input("Welke smaak wilt u voor liter " + str(a) + "Aardbei(a), chocolade(C), munt(m) of vanille(v).: ")
-        if hoi != "A".lower() and hoi != "C".lower() and hoi != "M".lower() and hoi != "V".lower():
+        hoi = input("Welke smaak wilt u voor liter " + str(a) + "Aardbei(a), chocolade(C) of vanille(v).: ")
+        if hoi != "A".lower() and hoi != "C".lower() and hoi != "V".lower():
             print("sorry dit snap ik niet....")
             smaakzakelijk(liter)
         else: 
@@ -105,7 +105,7 @@ def stapZ():
         smaakzakelijk(liters)
         bonnetje2(liters)
     else:
-        print("Sorry dat snap ik niet....\n")
+        print("Sorry dat is geen optie die we aanbieden....\n")
         stapZ()
 
  
@@ -113,27 +113,27 @@ def stapZ():
 def bonnetje(aantalbollen, BakjeOfHorentje, topping):
     print("---------------","papi-gelato","---------------\n")
     if aantalbollen >= 1:
-        print("Bolletjes       ", str(aantalbollen),"x €1.10    =", aantalbollen * 1.10)
+        print("Bolletjes       ", str(aantalbollen),"x €0,95    =", aantalbollen * 0,95)
     if BakjeOfHorentje == 'bakje':
         print("Bakje            1 x €0.75    =",1*0.75)
     elif BakjeOfHorentje == 'horentje':
         print("horentje         1 x €1.25    =",1*1.25)
     if topping == 'slagroom':
         print("topping          1 x €0.50    =",(1*0.50))
-        print("                              ------- +\ntotaal                        =",(aantalbollen * 1.10 + 1.25 + 0.50) )
+        print("                              ------- +\ntotaal                        =",(aantalbollen * 0,95 + 1.25 + 0.50) )
     elif topping == 'Sprinkels':
         print("topping          1 x €0.30    =",(1*0.50))
-        print("                              ------- +\ntotaal                        =",(aantalbollen * 1.10 + 1.25 + 0.30) )
+        print("                              ------- +\ntotaal                        =",(aantalbollen * 0,95 + 1.25 + 0.30) )
     elif topping == 'Caramel Saus':
         print("topping          1 x €0.90    =",(1*0.50))
-        print("                              ------- +\ntotaal                        =",(aantalbollen * 1.10 + 1.25 + 0.90) )
+        print("                              ------- +\ntotaal                        =",(aantalbollen * 0,95 + 1.25 + 0.90) )
 
 def bonnetje2(liters):
     som = (float(liters) * 9.80)
     print("---------------","papi-gelato","---------------\n")
     print(liters + ". Liter         "+ liters + "x €9,80    =", (float(liters) * 9.80))
     print("                               ------- +\ntotaal                        =", som)
-    print("BTW (9%)                      =", som/100*9)
+    print("BTW (9%)                      =", som/100*6)
     print("Bedankt en tot ziens!")
     
 print("*\n*Welkom bij Papi Gelato.\n*")
